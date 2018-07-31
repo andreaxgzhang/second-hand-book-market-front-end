@@ -1,0 +1,41 @@
+/* pages/browse/browse.wxss */
+.slide-image {
+  width: 100vw;
+}
+.post {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid rgba(220, 224,244,0.4)
+}
+.post-body {
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+.book-cover {
+  width: 23vw;
+  height: 15vh;
+  border-radius: 3px;
+}
+.title {
+  font-size: 14px;
+  font-weight: bolder;
+}
+.condition {
+  font-size: 12px;
+  font-weight: lighter;
+  display: block;
+}
+.status {
+  font-size: 10px;
+  font-weight: bold;
+  color: darkgray;
+  opacity: 0.8;
+}
+.price {
+  font-size: 16px;
+  display: block;
+  font-weight: bolder;
+  color: orangered;
+  margin-top: 6px;
+}

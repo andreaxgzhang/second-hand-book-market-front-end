@@ -1,0 +1,21 @@
+<!--index.wxml-->
+
+<view class="screen">
+
+
+
+      <view class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%);">
+        <view class="banner-content">
+          <view class='title'>Take Picture</view>
+          <text class='teaser'>Change Profile picture</text>
+        </view>
+      </view>
+
+      <view class="banner" style="height:80vh !important; ">
+          <view class="banner-content">
+              <image bindtap="takePhoto" style="width: 200px!important; " mode="widthFix" src="/images/edit.png"></image>
+          </view>
+        </view>
+
+
+</view>

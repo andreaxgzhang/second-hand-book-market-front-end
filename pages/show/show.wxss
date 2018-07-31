@@ -1,0 +1,13 @@
+.p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:8px;
+}
+
+
+.product-pic {
+width:200px;
+height:240px;
+padding-bottom:40px;
+ 
+}
+

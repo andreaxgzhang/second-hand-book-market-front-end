@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/main/main",
+    "pages/index/index",
+    "pages/show/show",
+    "pages/browse/browse",
+    "pages/userinfo/userinfo",
+    "pages/userhistory/userhistory",
+    "pages/confirm/confirm",
+    "pages/new/new"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#666",
+    "navigationBarTitleText": "Buy & Sell Used Textbooks",
+    "navigationBarTextStyle":"black"
+  }
+
+}

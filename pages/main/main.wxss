@@ -1,0 +1,56 @@
+
+.banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner .h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner .p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+button {
+  width:99%;
+  text-transform:uppercase;
+  border:2px solid #0099cc;
+  color:#0099cc;
+  background:none;
+  color:white;
+  border:black;
+  margin-top:-100px;
+}
+
+.fonts {
+font-size:25px;
+position:absolute;
+top:63%;
+right:-5%;
+}
+
+
+.line{
+position:absolute;
+top:26.5%;
+right:18%;
+}
+
+
+.first-line {
+position:absolute;
+top:19%;
+left:0%;
+}
+

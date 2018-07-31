@@ -1,0 +1,15 @@
+
+<view class = "container">
+  <view>
+    <image class="product-pic" src="https://images-na.ssl-images-amazon.com/images/I/51-ZPdoxkdL._SX412_BO1,204,203,200_.jpg" />
+  </view>
+
+    <view class="description">
+    <text class ='p'>Professor name: Wayne Lewandowski \n</text>
+    <text class ='p'>Class no. : PSYC 101 \n</text>
+    <text class ='p'>Condition: Like New \n</text>
+    <text class ='p'>ISBN-13: 978-1577667193 \n</text>
+    <text class ='p'>Asking price: $34.5 \n</text>
+    </view>
+
+</view>

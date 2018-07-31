@@ -1,0 +1,35 @@
+
+<!--pages/userinfo/userinfo.wxml-->
+  <view class="container">
+
+  <view class="wrap">
+  
+    <form bindsubmit="bindSubmit">
+
+    <view class="user-input">
+      <view class="text-area-wrap">
+      <input style="input-size"placeholder="wechat_id" class="input-height" name="wechatId" maxlength="-1" />
+      </view>
+    </view>
+
+    <view class="user-input">
+      <view class="text-area-wrap">
+      <input style="input-size"placeholder="email" class="input-height" name="email" maxlength="-1" />
+      </view>
+    </view>
+
+    <view class="user-input">
+      <view class="text-area-wrap">
+      <input style="input-size"placeholder="Note" class="input-height" name="note" maxlength="-1" />
+      </view>
+    </view>
+
+    <button  style="margin-bottom:50px "type="primary" form-type="submit">Submit</button>
+    </form>
+
+  </view>
+  </view>
+
+  <text>{{wechatId}}</text>
+  <text>{{emial}}</text>
+  <text>{{note}}</text>
