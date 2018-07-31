@@ -1,6 +1,4 @@
 // pages/new/new.js
-const app = getApp()
-const AV = require('../../utils/av-weapp-min.js');
 Page({
 
   /**
@@ -10,29 +8,20 @@ Page({
   
   },
 
-  
+
 
   bindSubmit: function (e) {
-    let page = this
-    let form_textbook = e.detail.value
-    console.log(page.data.photo)
+
+    let form_post = e.detail.value
+
     wx.request({
-      url: 'http://localhost:3000/api/v1/posts',
-      method: "post",
-      data: { 
-        title: form_textbook.title,
-        description: form_textbook.description,
-        course_number: form_textbook.description,
-        professor: form_textbook.professor,
-        price:form_textbook.price,
-        photo:page.data.photo
-       },
-      success: function (res) {
-      }
+      url: 'http://localhost:3000/api/v1/posts/',
+      method: "POST",
+      data: { post: form_post }
     })
 
     wx.reLaunch({
-      url: '/pages/userhistory/userhistory',
+      url: '/pages/browse/browse',
     })
   },
   /**
@@ -41,40 +30,7 @@ Page({
   onLoad: function (options) {
   
   },
-  takePhoto: function () {
-    let that = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0];
-        that.uploadPromise(tempFilePath).then(res => {
-          console.log('You can execute anything here')
-          return res
-        }).then(res => {
-          console.log('Or .. execute more')
-          return res
-        }).then(res => {
-          console.log(res)
-          that.setData({photo:res})
 
-          
-        })
-      }
-    });
-  },
-  uploadPromise: function (tempFilePath) {
-    return new Promise((resolve, reject) => {
-      new AV.File('file-name', {
-        blob: {
-          uri: tempFilePath,
-        },
-      }).save()
-        .then(file => resolve(file.url()))
-        .catch(e => reject(e));
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

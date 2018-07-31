@@ -5,11 +5,19 @@
   </view>
 
     <view class="description">
-    <text class ='p'>Professor name: Wayne Lewandowski \n</text>
-    <text class ='p'>Class no. : PSYC 101 \n</text>
-    <text class ='p'>Condition: Like New \n</text>
-    <text class ='p'>ISBN-13: 978-1577667193 \n</text>
-    <text class ='p'>Asking price: $34.5 \n</text>
+    <text class ='p'>{{title}} \n</text>
+    <text class ='p'>Class no. : {{course_number}} \n</text>
+    <text class ='p'>Condition: {{description}} \n</text>
+    <text class ='p'>Professor: Dr. {{professor}} \n</text>
+    <text class ='p'>Asking price: ${{price}} \n</text>
+    <text class ='p'>ID : ${{id}} \n</text>
+
     </view>
+
+      <view class="controls">
+          <image src="/images/random.png" class="icon" bindtap="editRestaurant" data-id="{{id}}" />
+          <image src="/images/recycling-bin.png" class="icon" bindtap="deleteRestaurant" data-id="{{id}}" />
+      </view>
+
 
 </view>
