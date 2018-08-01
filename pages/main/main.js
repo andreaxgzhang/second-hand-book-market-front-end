@@ -1,4 +1,4 @@
-const app = getApp()
+// pages/main/main.js
 Page({
 
   /**
@@ -21,20 +21,7 @@ Page({
   onReady: function () {
   
   },
-  bindSubmit: function(e) {
-    console.log(e)
-    wx.request({
-      url: `http://localhost:3000/api/v1/posts?query=${e.detail.value.course}`,
-      method: 'get',
-      success: function (res) {
-        const posts = res.data.posts;
 
-        wx.redirectTo({
-          url: `../browse/browse?value=${e.detail.value.course}`
-        });
-      }
-    })
-  },
   /**
    * 生命周期函数--监听页面显示
    */

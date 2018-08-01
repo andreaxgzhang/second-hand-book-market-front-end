@@ -1,4 +1,4 @@
-// pages/show/show.js
+// pages/edit/edit.js
 Page({
 
   /**
@@ -7,50 +7,69 @@ Page({
   data: {
   
   },
-  editRestaurant: function (e) {
-    const id = e.currentTarget.dataset.id
-    
-    wx.navigateTo({
-      url: `/pages/edit/edit?id=${id}`,
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
 
   onLoad: function (options) {
+    let page = this;
 
-    let that = this;
-    console.log(options.id)
-    // Get api data
+    wx.showToast({
+      title: 'Loading...',
+      icon: 'loading',
+      duration: 1500
+    });
+
+
+    // Get post data from server (to show in form)
     wx.request({
       url: `http://localhost:3000/api/v1/posts/${options.id}`,
       method: 'GET',
       success(pos) {
-        const post = pos.data.posts;
-        console.log(24, post);
+        var post = pos.data;
 
         // Update local data
-        that.setData(
+        page.setData(
           post
-          );
+        );
 
         wx.hideToast();
       }
     });
   },
 
-  // deleteRestaurant: function (e) {
-  //   let page = this
-  //   const id = e.currentTarget.dataset.id
-  //   console.log(id)
-  //   wx.request({
-  //     url: `http://localhost:3000/api/v1/posts/${id}`,
-  //     method: 'DELETE',
-  //   })
-  // },
 
+  bindSubmit: function (e) {
+
+    //...
+    let title = e.detail.value.title;
+    let description = e.detail.value.description;
+    let professor = e.detail.value.professor;
+    let course_number = e.detail.value.course_number;
+    let id = this.data.posts.id;
+
+    let post = {
+      title: title,
+      description: description,
+      professor: professor,
+      course_number: course_number
+    }
+    let form_post = e.detail.value
+
+    // Update api data
+    wx.request({
+      url: `http://localhost:3000/api/v1/posts/${id}`,
+      method: 'PUT',
+      data: { post: form_post },
+      success: function (pos) {
+        // set data on index page and show
+        wx.reLaunch({
+          url: '/pages/browse/browse'
+        });
+      }
+    })
+  },
 
 
   /**

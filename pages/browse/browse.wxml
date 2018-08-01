@@ -19,3 +19,4 @@
   <text class="price">${{post.price}}</text>
 </view>
 </view>
+

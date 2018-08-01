@@ -1,21 +1,23 @@
-<!--index.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true"> 
+      <block wx:for="{{arr}}"> 
+        <swiper-item> 
+            <image src="{{item}}" class="slide-image" width="355" height="150"/> 
+        </swiper-item> 
+      </block> 
+</swiper>
 
-<view class="screen">
-
-
-
-      <view class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%);">
-        <view class="banner-content">
-          <view class='title'>Take Picture</view>
-          <text class='teaser'>Change Profile picture</text>
-        </view>
-      </view>
-
-      <view class="banner" style="height:80vh !important; ">
-          <view class="banner-content">
-              <image bindtap="takePhoto" style="width: 200px!important; " mode="widthFix" src="/images/edit.png"></image>
-          </view>
-        </view>
-
-
+<view wx:for="{{posts}}" wx:for-item="post" class="post" bindtap='onClick' data-id="{{post.id}}">
+<image class="book-cover" src="{{arr[0]}}"></image>
+<view class="post-body">
+  <text class="title">{{post.title}}</text>
+  <text class="condition">In superb conditions</text>
 </view>
+<view class="post-info">
+  <text class="status">Pending</text>
+  <text class="price">$34.5</text>
+</view>
+</view>
+
+
+
