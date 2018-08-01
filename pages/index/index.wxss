@@ -1,40 +1,67 @@
-.slide-image {
-  width: 100vw;
+/* Banner Component */
+.banner {
+    color: white;
+    text-align: center;
+    height: 20vh;
+    /* if you have a 70px navbar => height: calc(100vh - 70px); */
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+  .teaser {
+    font-size: 16px;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    opacity: 0.6;
+    margin-bottom: 30px;
+  }
+  .margin {
+    margin-top: 20px;
+  }
+/* Banner Component */
+
+
+/* Cards */
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin: 20px;
+  border-radius: 20px;
 }
-.post {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 2px solid rgba(220, 224,244,0.4)
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
 }
-.post-body {
-  margin: 0 auto;
-  padding-bottom: 10px;
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
 }
-.book-cover {
-  width: 23vw;
-  height: 15vh;
-  border-radius: 3px;
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
-.title {
+.card-description .name {
+  font-size: 24px;
+}
+.card-description .tag {
   font-size: 14px;
-  font-weight: bolder;
-}
-.condition {
-  font-size: 12px;
+  opacity: 0.7;
   font-weight: lighter;
-  display: block;
-}
-.status {
-  font-size: 10px;
-  font-weight: bold;
-  color: darkgray;
-  opacity: 0.8;
-}
-.price {
-  font-size: 16px;
-  display: block;
-  font-weight: bolder;
-  color: orangered;
-  margin-top: 6px;
 }

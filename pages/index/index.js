@@ -1,42 +1,41 @@
-
 const app = getApp()
-
+const AV = require('../../utils/av-weapp-min.js');
 Page({
-  // getUserInfo: function (e) {
-  //   console.log(e)
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo
-  //   })
-  // },
-
-  // onLoad: function(options){
-  //   const page = this
-  //   wx.getUserInfo({
-  //     success: function (res) {
-  //       app.globalData.userInfo = res.userInfo
-  //       const id = getApp().globalData.userId
-  //       console.log(getApp().globalData.userId)
-  //       // page.setData({
-  //       //   userInfo: res.userInfo
-  //       // })
-  //       wx.request({
-  //         url: `http://localhost:3000/api/v1/users/${id}`,
-  //         method: 'put',
-  //         data: {
-  //           name: res.userInfo.nickName,
-  //           gender: res.userInfo.gender,
-  //           avatarUrl: res.userInfo.avatarUrl
-  //         },
-  //         success: function () {
-  //           // set data on index page and show
-  //           wx.redirectTo({
-  //             url: '/pages/main/main'
-  //           });
-  //         }
-  //         // insert next code here
-  //       })
-  //     },
-  //   })
-  // }
+  data: {
+    items: []
+  },
+  onLoad: function () {
+  },
+  takePhoto: function () {
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        let tempFilePath = res.tempFilePaths[0];
+        that.uploadPromise(tempFilePath).then(res => {
+          console.log('You can execute anything here')
+          return res
+        }).then(res => {
+          console.log('Or .. execute more')
+          return res
+        }).then(res => {
+          let url = `/pages/show/show?leanCloudImage=${res}`
+          wx.navigateTo({ url })
+        })
+      }
+    });
+  },
+  uploadPromise: function (tempFilePath) {
+    return new Promise((resolve, reject) => {
+      new AV.File('file-name', {
+        blob: {
+          uri: tempFilePath,
+        },
+      }).save()
+        .then(file => resolve(file.url()))
+        .catch(e => reject(e));
+    })
+  }
 })
