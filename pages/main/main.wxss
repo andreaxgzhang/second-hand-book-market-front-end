@@ -1,4 +1,3 @@
-
 .banner {
   color: white;
   text-align: center;
@@ -14,14 +13,9 @@
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
-.banner .p {
-  font-size: 25px;
-  font-weight: lighter;
-  color: rgb(255, 255, 255);
-  opacity: 0.6;
-  margin-bottom: 30px;
+.banner-content {
+  margin: 0 auto 40vh auto;
 }
-
 button {
   width:99%;
   text-transform:uppercase;
@@ -30,27 +24,23 @@ button {
   background:none;
   color:white;
   border:black;
-  margin-top:-100px;
+  position: relative;
+  top: 10vh;
 }
-
-.fonts {
-font-size:25px;
-position:absolute;
-top:63%;
-right:-5%;
+.new-line {
+  display: block;
+  position: absolute;
+  left: 1vw;
+  right: 25vw;
 }
-
-
-.line{
-position:absolute;
-top:26.5%;
-right:18%;
+.new-line-2 {
+  display: block;
 }
-
-
-.first-line {
-position:absolute;
-top:19%;
-left:0%;
+.placeholder {
+  border-bottom: 1px solid white;
+  width: 30vw;
+  font-size: 22px;
+  position: absolute;
+  right: 17vw;
+  margin-top: 2.5vh;
 }
-

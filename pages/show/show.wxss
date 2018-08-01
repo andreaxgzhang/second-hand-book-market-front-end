@@ -1,5 +1,5 @@
 .p {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif
   font-size:8px;
 }
 
@@ -11,3 +11,8 @@ padding-bottom:40px;
  
 }
 
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+}
