@@ -17,12 +17,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const page = this
+    let page = this;
+    // Get api data
     wx.request({
-      url: 'http://localhost:3000/api/v1/posts',
-      success: function (pos) {
-        let posts = pos.data
+      url: `http://localhost:3000/api/v1/posts?query=${options.value}`,
+      method: 'get',
+      success: function (res) {
+        console.log(res)
+        const posts = res.data;
         page.setData(posts)
+        // wx.redirectTo({
+        //   url: `../browse/browse?value=${e.detail.value.course}`
+        // });
       }
     })
   }, 

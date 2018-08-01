@@ -23,20 +23,13 @@ Page({
   },
   bindSubmit: function (e) {
     const that = this;
-    console.log(e)
     let wechatId, email, note;
-    that.setData({
-      wechatId: e.detail.value.wechatId,
-      email: e.detail.value.email,
-      note: e.detail.value.note
-    })
     wx.request({
       url: `http://localhost:3000/api/v1/users/${getApp().globalData.userId}`,
       method: 'put',
       data: {
         wechat_id: e.detail.value.wechatId,
         email: e.detail.value.email,
-        // note: e.detail.value.note
       },
       success: function () {
       }

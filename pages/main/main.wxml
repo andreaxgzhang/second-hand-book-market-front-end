@@ -1,8 +1,14 @@
 <!--pages/main/main.wxml-->
+
 <view class="banner" style="background-image: url('https://images.unsplash.com/photo-1510172951991-856a654063f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e274a5d7028b3221db5de6cf0b39db6c&auto=format&fit=crop&w=934&q=80');">
   <view class="banner-content">
-    <form class="h1 first-line">I am currently taking _____<input class = "fonts" name = "course" placeholder = "PSYC 101"></input></form>
-    <button bindtap="buttonClicked">Submit</button>
+    <form bindsubmit="bindSubmit" class="h1 first-line">
+    <text class="new-line-2">I am currently</text>
+    <view>
+    <text class="new-line">taking</text>
+    <input class = "placeholder" name = "course" placeholder = "PSYC 101" ></input>
+    </view>
+    <button form-type="submit">Submit</button>
+    </form>
   </view>
 </view>
-

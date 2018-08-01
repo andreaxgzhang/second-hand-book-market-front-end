@@ -1,4 +1,3 @@
-
 <view class="header">
   <view class="h2-header">Submit your Textbook</view>
   </view>
@@ -22,13 +21,24 @@
 
     <view class="user-input">
       <view class="text-area-wrap">
-      <textarea value="{{address}}" style="input-size"placeholder="Course Number" class="input-height" name="course_number" maxlength="-1" auto-height />
+      <textarea value="{{course_number}}" style="input-size"placeholder="course_number" class="input-height" name="course_number" maxlength="-1" auto-height />
       </view>
     </view>
-
     <view class="user-input">
       <view class="text-area-wrap">
-      <textarea value="{{professor}}" style="input-size"placeholder="Professor" class="input-height" name="professor" maxlength="-1" auto-height />
+      <textarea value="{{professor}}" style="input-size"placeholder="professor" class="input-height" name="professor" maxlength="-1" auto-height />
+      </view>
+    </view>
+        
+    <view class="user-input">
+      <view class="text-area-wrap">
+      <textarea value="{{price}}" style="input-size"placeholder="price" class="input-height" name="price" maxlength="-1" auto-height />
+      </view>
+    </view>
+    <view class="user-input">
+      <view class="text-area-wrap">
+        <image bindtap="takePhoto" style="width: 100px!important; " mode="widthFix" src=""></image>
+        
       </view>
     </view>
 
