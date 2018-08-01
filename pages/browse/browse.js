@@ -17,22 +17,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const page = this
+    // wx.navigateTo({
+    //   url: '../index/index',
+    // })
+    let page = this;
+    // Get api data
+    console.log(options)
     wx.request({
-      url: 'http://localhost:3000/api/v1/posts',
-      success: function (pos) {
-        let posts = pos.data
+      url: `http://localhost:3000/api/v1/posts?query=${options.value}`,
+      method: 'get',
+      success: function (res) {
+        console.log(res)
+        const posts = res.data;
         page.setData(posts)
+        console.log(posts)
+        // wx.redirectTo({
+        //   url: `../browse/browse?value=${e.detail.value.course}`
+        // });
       }
     })
-  }, 
+    // wx.request({
+    //   url: "http://localhost:3000/api/v1/posts",
+    //   method: 'GET',
+    //   success(res) {
+    //     const posts = res.data.posts;
 
-  onClick: function (e) {
-    const id = e.currentTarget.dataset.post.id
-    wx.navigateTo({
-      url: `/pages/show/show?id=${id}`,
-    })
-  }, 
+    //     // Update local data
+    //     page.setData({
+    //       posts: posts
+    //     });
+    //     console.log(posts)
+    //     wx.hideToast();
+    //   }
+    // });
+    // var array = this.data.arr
+    // for (let i = 1; i < 1; i++) {
+    //   array.push("img/" + i + ".jpg")
+    // }
+    // this.setData({ arr: array })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

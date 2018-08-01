@@ -1,14 +1,18 @@
 //app.jsconst app = getApp()
 const app = getApp()
-
+const AV = require('./utils/av-weapp-min.js')
+const config = require('./key')
+// Initialization of the app
+AV.init({
+  appId: config.appId,
+  appKey: config.appSecret,
+});
 
 App({
   onLaunch: function () {
     const host = 'http://localhost:3000/'
-    console.log('processing to login')
     wx.login({
       success: (res) => {
-        console.log(res)
         wx.request({
           url: host + 'api/v1/login',
           method: 'post',
@@ -18,10 +22,9 @@ App({
           success: (res1) => {
             this.globalData.userId = res1.data.userId
             const page = this
-
+            console.log(11,res1)
             wx.getUserInfo({
               success: function (res2) {
-                console.log(60, res1.data.userId)
 
                 page.globalData.userInfo = res2.userInfo
                 wx.request({

@@ -1,26 +1,4 @@
 {
-
-      "tabBar": {
-        "backgroundColor": "#32AAE1",
-        "selectedColor": "white",
-        "borderStyle": "black",
-        "color": "black",
-        "list": [
-          {
-            "pagePath": "pages/browse/browse",
-            "iconPath": "images/random.png",
-            "selectedIconPath": "images/selected-random.png",
-            "text": "My Profile"
-          },
-          {
-            "pagePath": "pages/new/new",
-            "iconPath": "images/submit.png",
-            "selectedIconPath": "images/selected-submit.png",
-            "text": "Sell My Own"
-          }
-        ]
-      },
-
   "pages":[
     "pages/main/main",
     "pages/index/index",
@@ -29,8 +7,7 @@
     "pages/userinfo/userinfo",
     "pages/userhistory/userhistory",
     "pages/confirm/confirm",
-    "pages/new/new",
-    "pages/edit/edit"
+    "pages/new/new"
 
   ],
   "window":{
@@ -39,6 +16,5 @@
     "navigationBarTitleText": "Buy & Sell Used Textbooks",
     "navigationBarTextStyle":"black"
   }
-
 
 }

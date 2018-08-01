@@ -7,52 +7,45 @@ Page({
   data: {
   
   },
-  editRestaurant: function (e) {
-    const id = e.currentTarget.dataset.id
-    
-    wx.navigateTo({
-      url: `/pages/edit/edit?id=${id}`,
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-
   onLoad: function (options) {
-
-    let that = this;
-    console.log(options.id)
-    // Get api data
-    wx.request({
-      url: `http://localhost:3000/api/v1/posts/${options.id}`,
-      method: 'GET',
-      success(pos) {
-        const post = pos.data.posts;
-        console.log(24, post);
-
-        // Update local data
-        that.setData(
-          post
-          );
-
-        wx.hideToast();
+    console.log(options)
+  },
+  takePhoto: function () {
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        let tempFilePath = res.tempFilePaths[0];
+        that.uploadPromise(tempFilePath).then(res => {
+          console.log('You can execute anything here')
+          return res
+        }).then(res => {
+          console.log('Or .. execute more')
+          return res
+        }).then(res => {
+          let url = `/pages/show/show?leanCloudImage=${res}`
+          wx.navigateTo({ url })
+        })
       }
     });
   },
-
-  // deleteRestaurant: function (e) {
-  //   let page = this
-  //   const id = e.currentTarget.dataset.id
-  //   console.log(id)
-  //   wx.request({
-  //     url: `http://localhost:3000/api/v1/posts/${id}`,
-  //     method: 'DELETE',
-  //   })
-  // },
-
-
-
+  uploadPromise: function (tempFilePath) {
+    return new Promise((resolve, reject) => {
+      new AV.File('file-name', {
+        blob: {
+          uri: tempFilePath,
+        },
+      }).save()
+        .then(file => resolve(file.url()))
+        .catch(e => reject(e));
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
