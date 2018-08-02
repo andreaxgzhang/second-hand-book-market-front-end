@@ -1,4 +1,12 @@
-
+.container {
+  padding: 0;
+}
+.header {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
 .user-input {
   width: 300px;
   margin-bottom: 35rpx;

@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/main/main",
     "pages/index/index",
     "pages/show/show",
@@ -9,13 +9,34 @@
     "pages/confirm/confirm",
     "pages/new/new",
     "pages/edit/edit"
-
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#666",
     "navigationBarTitleText": "Buy & Sell Used Textbooks",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "Search",
+        "iconPath": "image/magnifier-tool.png",
+        "selectedIconPath": "image/magnifier-tool.png"
+      },
+      {
+        "pagePath": "pages/userhistory/userhistory",
+        "text": "Profile",
+        "iconPath": "image/user-3.png",
+        "selectedIconPath": "image/user-3.png"
+      },
+      {
+        "pagePath": "pages/new/new",
+        "text": "Sell",
+        "iconPath": "image/plus.png",
+        "selectedIconPath": "image/plus.png"
+      }
+    ]
   }
-
 }
