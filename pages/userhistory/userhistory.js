@@ -1,11 +1,17 @@
 var tabs = [
+
   {
     name: "Purchased"
   },
   {
-    name: "Sold"
+    name: "Books Sold"
+  },
+  {
+    name: "Userinfo"
   }
+
 ];
+
 // pages/userhistory/userhistory.js
 Page({
 
@@ -13,6 +19,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    history: [],
     tabs: tabs,     //展示的数据
     slideOffset: 0,//指示器每次移动的距离
     activeIndex: 0,//当前展示的Tab项索引
@@ -35,8 +42,17 @@ Page({
         });
       }
     });
+    
   },
+  homeTap: function () {
+    wx.reLaunch({
+      url: '../../pages/main/main'
+    })
+    // wx.navigateTo({
+    //   url: `/pages/main/main`
+    // })
 
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -45,12 +61,38 @@ Page({
 
   },
   bindChange: function (e) {
+    let page = this
     var current = e.detail.current;
     this.setData({
       activeIndex: current,
       sliderOffset: this.data.sliderWidth * current
     });
     console.log("bindChange:" + current);
+    console.log(getApp().globalData.userId)
+    if(current == 1){
+      wx.request({
+        url: `https://second-hand-textbook.herokuapp.com/api/v1/sold?userId=${getApp().globalData.userId}`,
+        method: 'get',
+        success: function (res) {
+          console.log(11, res.data.transactions)
+
+          page.setData ({
+            history: res.data.transactions
+          }),
+            console.log(1, page.data.history)
+        }
+      })
+    }
+    else{
+      wx.request({
+        url: `https://second-hand-textbook.herokuapp.com/api/v1/purchased?userId=${getApp().globalData.userId}`,
+        method: 'get',
+        success: function (res) {
+          console.log(11, res)
+        }
+      })
+    }
+
   },
 
   navTabClick: function (e) {

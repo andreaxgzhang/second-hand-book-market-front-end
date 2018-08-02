@@ -25,13 +25,16 @@ Page({
     const that = this;
     let wechatId, email, note;
     wx.request({
-      url: `http://localhost:3000/api/v1/users/${getApp().globalData.userId}`,
+      url: `https://second-hand-textbook.herokuapp.com/api/v1/users/${getApp().globalData.userId}`,
       method: 'put',
       data: {
         wechat_id: e.detail.value.wechatId,
         email: e.detail.value.email,
       },
       success: function () {
+        wx.redirectTo({
+          url: 'pages/userhistory.userhistory',
+        })
       }
     })
 

@@ -9,7 +9,7 @@
 </swiper>
 
 <view wx:for="{{posts}}" wx:for-item="post" class="post" bindtap='onClick' data-post="{{post}}">
-<image class="book-cover" src="{{arr[0]}}"></image>
+<image class="book-cover" src="{{post.photo}}"></image>
 <view class="post-body">
   <text class="title">{{post.title}}</text>
   <text class="condition">{{post.description}}</text>

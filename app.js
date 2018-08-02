@@ -10,7 +10,7 @@ AV.init({
 
 App({
   onLaunch: function () {
-    const host = 'http://localhost:3000/'
+    const host = 'https://second-hand-textbook.herokuapp.com/'
     wx.login({
       success: (res) => {
         wx.request({
@@ -28,7 +28,7 @@ App({
 
                 page.globalData.userInfo = res2.userInfo
                 wx.request({
-                  url: `http://localhost:3000/api/v1/users/${res1.data.userId}`,
+                  url: `https://second-hand-textbook.herokuapp.com/api/v1/users/${res1.data.userId}`,
                   method: 'put',
                   data: {
                     name: res2.userInfo.nickName,

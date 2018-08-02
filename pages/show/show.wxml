@@ -1,7 +1,42 @@
 <view class = "container">
+  <view class="box">
+    <view class="product-pic" style="background-image: url('{{photo}}');background-size: cover;"></view>
+    <view class="controls">
+      <!-- <image src="/images/edit.svg" class="icon" bindtap="editRestaurant" data-id="{{id}}" />
+      <image src="/images/delete-button.svg" class="icon" bindtap="deleteRestaurant" data-id="{{id}}" /> -->
+    </view>
+  </view>
+
+    <view class="description">
+      <view class="ei">
+        <text class="title">{{title}} </text>
+      </view>
+      <view class="ao">
+        <text class="price">$34.5{{price}} \n</text>
+      </view>
+    <view class="wow">
+    <text class="des">Description \n</text>
+    </view>
+    <view class="duang">
+      <text class ='p'>Class no. : {{course_number}} \n</text>
+      <text class ='p'>Condition: {{description}} \n</text>
+      <text class ='p'>Professor: Dr. {{professor}} \n</text>
+      <text class ='p'>ID : ${{id}} \n</text>
+    </view>
+    </view>
+ 
+    <button class="btn" bindtap='onClick' open-type="getUserInfo" bindgetuserinfo="getUserInfo" form-type="submit" data-id="{{id}}" loading="{{loading}}" bindtap="modalcnt">Confirm</button>
+</view>
+
+<!-- <view class = "container">
   <view>
     <image class="product-pic" src="https://images-na.ssl-images-amazon.com/images/I/51-ZPdoxkdL._SX412_BO1,204,203,200_.jpg" />
   </view>
+
+        <view class="controls">
+          <image src="/images/edit.svg" class="icon" bindtap="editRestaurant" data-id="{{id}}" />
+          <image src="/images/delete-button.svg" class="icon" bindtap="deleteRestaurant" data-id="{{id}}" />
+      </view>
 
     <view class="description">
     <text class ='p'>{{title}} \n</text>
@@ -9,14 +44,12 @@
     <text class ='p'>Condition: {{description}} \n</text>
     <text class ='p'>Professor: Dr. {{professor}} \n</text>
     <text class ='p'>Asking price: ${{price}} \n</text>
-    <text class ='p'>ID : ${{id}} \n</text>
+    <text class ='p'>User : {{name}} \n</text>
 
     </view>
 
-      <view class="controls">
-          <image src="/images/random.png" class="icon" bindtap="editRestaurant" data-id="{{id}}" />
-          <image src="/images/recycling-bin.png" class="icon" bindtap="deleteRestaurant" data-id="{{id}}" />
-      </view>
+
+    <button bindtap='onClick' style="margin-bottom:50px "type="primary" form-type="submit" data-id= "{{id}}" loading="{{loading}}">Confirm</button>
 
 
-</view>
+</view> -->

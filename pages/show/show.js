@@ -7,7 +7,21 @@ Page({
   data: {
 
   },
-
+  modalcnt: function () {
+    wx.showModal({
+      title: 'Confirmation',
+      content: 'Are you sure you want to proceed?',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/confirm/confirm',
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   editRestaurant: function (e) {
     const id = e.currentTarget.dataset.id
 
@@ -20,25 +34,60 @@ Page({
    */
 
   onLoad: function (options) {
-
+    console.log(1234, options);
+    this.setData({postId: options.id})
     let that = this;
-    console.log(options.id)
     // Get api data
     wx.request({
-      url: `http://localhost:3000/api/v1/posts/${options.id}`,
+      url: `https://second-hand-textbook.herokuapp.com/api/v1/posts/${options.id}`,
       method: 'GET',
       success(pos) {
         const post = pos.data.posts;
-        console.log(24, post);
-
+        const user = post.user
         // Update local data
         that.setData(
           post
         );
-
+        that.setData(
+          user
+        );
         wx.hideToast();
       }
     });
+
+
+  },
+
+  onClick: function (e) {
+    const id = e.target.dataset.id;
+    let page = this
+    console.log(this.data)
+    wx.request({
+      url: `https://second-hand-textbook.herokuapp.com/api/v1/posts/${this.data.postId}`,
+      method: 'put',
+      data: {
+        confirmed: true
+      },
+      success: function () {
+      }
+    })
+    wx.request({
+      url: `https://second-hand-textbook.herokuapp.com/api/v1/transactions`,
+      method: 'post',
+      data: {
+        title:  this.data.title,
+        photo: this.data.photo,
+        description: this.data.description,
+        user_id: this.data.user_id,
+        post_id: this.data.postId
+      },
+      success: function () {
+        wx.navigateTo({
+          url: `/pages/confirm/confirm?id=${id}`
+        })
+      }
+    })
+
   },
 
   // deleteRestaurant: function (e) {

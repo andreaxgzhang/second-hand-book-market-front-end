@@ -1,18 +1,72 @@
 .p {
-  font-family: Georgia, 'Times New Roman', Times, serif
-  font-size:8px;
+  font-size: 16px;
+}
+.container {
+  padding: 0;
+}
+.title {
+  font-size: 22px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.box {
+  margin-top: 70rpx;
+  margin-bottom: 50rpx;
+}
+.ao {
+  display: block;
+
+}
+.confirm-des {
+  position: relative;
+  top: 15rpx;
 }
 
+.ba {
+  position: relative;
+  right: 0px;
+  margin-right: 0;
+}
 
+.btn {
+  font-size: 12px;
+  width: 100px;
+}
 .product-pic {
-width:200px;
-height:240px;
-padding-bottom:40px;
- 
+  width:200px;
+  height:240px;
+  position: relative;
+  top: 20rpx;
+  bottom: 20rpx;
+  margin: 0 auto;
 }
-
-
 .controls {
   display: flex;
-  justify-content: space-around;
+  float: right;
+}
+.wow {
+  border-bottom: 1px solid gainsboro;
+  padding: 20rpx;
+}
+.des {
+  font-size: 16px;
+  color: #aaa;
+}
+.icon{
+  width: 25px;
+  height: 25px;
+}
+.description {
+  width: 75%;
+  margin: 50rpx auto 0 auto;
+}
+.price {
+  font-size: 13px;
+  padding-left: 30rpx;
+  color: orangered;
+}
+.duang {
+  margin: 10px;
+}
+.p {
+  font-size: 12px;
 }

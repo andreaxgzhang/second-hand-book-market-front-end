@@ -17,7 +17,7 @@ Page({
     let form_textbook = e.detail.value
     console.log(page.data.photo)
     wx.request({
-      url: 'http://localhost:3000/api/v1/posts',
+      url: 'https://second-hand-textbook.herokuapp.com/api/v1/posts',
       method: "post",
       data: { 
         title: form_textbook.title,

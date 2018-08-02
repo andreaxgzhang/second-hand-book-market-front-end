@@ -17,7 +17,7 @@
   margin: 0 auto 40vh auto;
 }
 button {
-  width:99%;
+  width:100%;
   text-transform:uppercase;
   border:2px solid #0099cc;
   color:#0099cc;
