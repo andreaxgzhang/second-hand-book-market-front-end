@@ -1,6 +1,9 @@
 <view class = "container">
+  <view class="card">
   <view class="box">
+
     <view class="product-pic" style="background-image: url('{{photo}}');background-size: cover;"></view>
+
     <view class="controls">
       <!-- <image src="/images/edit.svg" class="icon" bindtap="editRestaurant" data-id="{{id}}" />
       <image src="/images/delete-button.svg" class="icon" bindtap="deleteRestaurant" data-id="{{id}}" /> -->
@@ -12,44 +15,21 @@
         <text class="title">{{title}} </text>
       </view>
       <view class="ao">
-        <text class="price">$34.5{{price}} \n</text>
+        <text class="price">${{price}}</text>
       </view>
     <view class="wow">
-    <text class="des">Description \n</text>
     </view>
+    <text style="font-weight: bold; font-size:12px;">For Dr. {{professor}}'s {{course_number}} \n </text>
     <view class="duang">
+      <view class="p">This book's condition is {{description}}. With a few notes and minor wear on the cover page. This book is still availible at this moment. In order to purchase this book, click on the confirm button to get in touch with the seller. </view>
+      <!-- <text class ='p'>Condition: {{description}} \n</text>
       <text class ='p'>Class no. : {{course_number}} \n</text>
-      <text class ='p'>Condition: {{description}} \n</text>
+
       <text class ='p'>Professor: Dr. {{professor}} \n</text>
-      <text class ='p'>ID : ${{id}} \n</text>
+      <text class ='p'>Seller: Andre Jackson  \n</text> -->
     </view>
     </view>
- 
-    <button class="btn" bindtap='onClick' open-type="getUserInfo" bindgetuserinfo="getUserInfo" form-type="submit" data-id="{{id}}" loading="{{loading}}" bindtap="modalcnt">Confirm</button>
+
+    <button class="btn" bindtap='onClick' open-type="getUserInfo" bindgetuserinfo="getUserInfo" form-type="submit" data-id="{{id}}" loading="{{loading}}" bindtap="modalcnt" confirm-text="confirm" cancel-text="cancel">Confirm</button>
+    </view>
 </view>
-
-<!-- <view class = "container">
-  <view>
-    <image class="product-pic" src="https://images-na.ssl-images-amazon.com/images/I/51-ZPdoxkdL._SX412_BO1,204,203,200_.jpg" />
-  </view>
-
-        <view class="controls">
-          <image src="/images/edit.svg" class="icon" bindtap="editRestaurant" data-id="{{id}}" />
-          <image src="/images/delete-button.svg" class="icon" bindtap="deleteRestaurant" data-id="{{id}}" />
-      </view>
-
-    <view class="description">
-    <text class ='p'>{{title}} \n</text>
-    <text class ='p'>Class no. : {{course_number}} \n</text>
-    <text class ='p'>Condition: {{description}} \n</text>
-    <text class ='p'>Professor: Dr. {{professor}} \n</text>
-    <text class ='p'>Asking price: ${{price}} \n</text>
-    <text class ='p'>User : {{name}} \n</text>
-
-    </view>
-
-
-    <button bindtap='onClick' style="margin-bottom:50px "type="primary" form-type="submit" data-id= "{{id}}" loading="{{loading}}">Confirm</button>
-
-
-</view> -->

@@ -11,12 +11,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(45, options.id)
+  onLoad: function () {
+    // console.log(45, options.id)
 
     let page = this;
     wx.request({
-      url: `https://second-hand-textbook.herokuapp.com/api/v1/users/${options.id}`,
+      url: `https://second-hand-textbook.herokuapp.com/api/v1/users/${getApp().globalData.userId}`,
       method: 'get',
       success: function (res) {
         const users = res.data;
@@ -24,11 +24,12 @@ Page({
         console.log(users)
       }
     })
+    // page.setData({users: getApp().globalData})
 
   },
   homeTap: function(){
     wx.reLaunch({
-      url: '../../pages/main/main',
+      url: '/pages/userinfo/userinfo',
     })
   },
   /**

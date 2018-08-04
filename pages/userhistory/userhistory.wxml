@@ -1,4 +1,6 @@
 <!--pages/userhistory/userhistory.wxml-->
+<modal title="Confirmation" confirm-text="confirm" cancel-text="cancel" hidden="{{modalHidden}}" bindconfirm="confirm" bindcancel="cancel">Are you sure you want to delete your  post ?.
+</modal>
 <view class="page">
   <view class="navbar">
     <block wx:for="{{tabs}}" wx:key="*this">
@@ -10,85 +12,51 @@
 </view>
 
 <view style="position: absolute;top: 68rpx;width: 100%;height:{{contentHeight}}px">
-  <swiper current="{{activeIndex}}" duration="300" bindchange="bindChange">
-  
-    <swiper-item>
+  <view current="{{activeIndex}}" duration="300" bindchange="bindChange">
+    <view>
+      <view wx:for="{{transactions}}" wx:for-item="transaction" class="post" bindtap='onClick' data-post="{{transaction}}">
+        <image class="book-cover" src="{{transaction.post.photo}}"></image>
+          <view class="post-body">
+            <text class="title">{{transaction.post.title}}</text>
+            <text class="condition">{{transaction.post.description}}</text>
+          </view>
+          <view class="post-info">
+            <text class="status" style="color: green;">{{transaction.completed}}</text>
+            <text class="price">${{transaction.post.price}}</text>
+            <view wx:if="{{ nav === '1' }}">
+              <checkbox-group bindchange="checkboxChange" data-id="{{post.id}}">
+            <label class="checkbox">
+              <checkbox value="{{transaction.post.title}}" checked="{{post.checked}}" disabled="{{transaction.post.disabled}}"/>{{transaction.post.value}}
+            </label>
+        </checkbox-group>
+            </view>
+          </view>       
+      </view>
+      </view>
+
+    </view> 
+
+    <view wx:if="{{ nav === '1' }}">
       <view>
-        <view class="post">
-          <image class="book-cover" src="https://cf2.s3.souqcdn.com/item/2016/03/14/10/28/25/54/item_XL_10282554_13000569.jpg"></image>
+      <view wx:for="{{posts}}" wx:for-item="post" class="post" bindtap='onClickdattruea-post="{{post}}"'>
+        <image class="book-cover" src="{{post.photo}}"></image>
           <view class="post-body">
-            <text class="title">The Great Reset</text>
-            <text class="condition">In superb conditions</text>
+            <text class="title">{{post.title}}</text>
+            <text class="condition">condition: {{post.description}}</text>
+            
+
           </view>
           <view class="post-info">
-            <text class="status">Pending</text>
-            <text class="price">$34.5</text>
-          </view>
-          </view>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view>
-          <view class="post">
-          <image class="book-cover" src="http://www.creativindie.com/wp-content/uploads/2013/10/the_great_reset_book_cover.gif"></image>
-          <view class="post-body">
-            <text class="title">Introduction to Psychology</text>
-            <text class="condition">Condition: Like New</text>
-          </view>
-          <view class="post-info">
-            <text class="status" style="color: green;">Complete</text>
-            <text class="price">$34.5</text>
-          </view>
-          </view>
-        </view>
-        <view>
-          <view class="post">
-          <image class="book-cover" src="http://flavorwire.files.wordpress.com/2013/01/deadman.jpg"></image>
-          <view class="post-body">
-            <text class="title">Topics in Sociology</text>
-            <text class="condition">Condition: Acceptable</text>
-          </view>
-          <view class="post-info">
-            <text class="status" style="color: green;">Complete</text>
-            <text class="price">$21.0</text>
-          </view>
-          </view>
-        </view>
-      </swiper-item>
-
-          <swiper-item>
-  <view class="container">
-
-  <view class="wrap">
-  
-    <form bindsubmit="bindSubmit">
-
-    <view class="user-input">
-      <view class="text-area-wrap">
-      <input style="input-size"placeholder="zxg378213" class="input-height" name="wechatId" maxlength="-1" />
+            <text class="status" style="color: grey;">Pending</text>
+            <text class="price">${{post.price}}</text>
+            <view class="icons">
+              <image class="icon" src="/image/delete-button.png" bindtap="modalTap" data-id="{{post.id}}"></image>
+              <image class="icon" src="/image/new-file.png" bindtap="editPost" data-id="{{post.id}}"></image>
+            </view>
+          </view>     
       </view>
-    </view>
-
-    <view class="user-input">
-      <view class="text-area-wrap">
-      <input style="input-size"placeholder="Zhangxiange23@virginia.edu" class="input-height" name="email" maxlength="-1" />
       </view>
-    </view>
-
-        <view class="user-input">
-      <view class="text-area-wrap">
-      <input style="input-size"placeholder="University of Virginia" class="input-height" name="email" maxlength="-1" />
-      </view>
-    </view>
-
-
-    <button  style="margin-bottom:50px "type="primary" form-type="submit"bindtap="homeTap" >Back</button>
-    </form>
-
-  </view>
-  </view>
-      </swiper-item>
-
-    </swiper> 
+    
+    </view>   
   </view>
 </view>

@@ -21,18 +21,31 @@ Page({
   onReady: function () {
   
   },
-  bindSubmit: function(e) {
-    console.log(e)
-    wx.request({
-      url: `https://second-hand-textbook.herokuapp.com/api/v1/posts?query=${e.detail.value.course}`,
-      method: 'get',
-      success: function (res) {
-        const posts = res.data.posts;
+  search: function(e) {
+    // console.log(2222, e.detail.value)
+    // wx.request({
+    //   url: `http://localhost:3000/api/v1/posts?query=${e.detail.value}`,
+    //   method: 'get',
+    //   success: function (res) {
+    //     const posts = res.data.posts;
 
         wx.navigateTo({
-          url: `../browse/browse?value=${e.detail.value.course}`
+          url: `../browse/browse?value=${e.detail.value}`
         });
-      }
+    //   }
+    // })
+  },
+  buy: function (e) {
+    wx.navigateTo({
+      url: '/pages/browse/browse',
+    })
+  },
+
+
+  sell: function (e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/new/new',
     })
   },
   /**

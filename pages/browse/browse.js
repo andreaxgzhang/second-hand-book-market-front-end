@@ -20,17 +20,13 @@ Page({
 
     let page = this;
     // Get api data
+    console.log(options.value)
     wx.request({
       url: `https://second-hand-textbook.herokuapp.com/api/v1/posts?query=${options.value}`,
       method: 'get',
       success: function (res) {
-        console.log(res)
         const posts = res.data;
         page.setData(posts)
-        console.log(posts)
-        // wx.redirectTo({
-        //   url: `../browse/browse?value=${e.detail.value.course}`
-        // });
       }
     })
 

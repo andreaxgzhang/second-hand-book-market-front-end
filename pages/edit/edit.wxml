@@ -1,7 +1,7 @@
-
-  <view class="header">
-  <view class="h2-header">Submit your Restaurant</view>
-  </view>
+<view class="main-container">
+<view class="header">
+  <view class="h2-header">Edit your post</view>
+</view>
   <view class="container">
   <view class="wrap">
   
@@ -30,9 +30,19 @@
       <textarea value="{{posts.course_number}}" style="input-size"placeholder="Course Number" class="input-height" name="course_number" maxlength="-1" auto-height />
       </view>
     </view>
-
+    <view class="user-input">
+      <view class="hello">
+      <view wx:if="{{photo === nil}}">
+        <image bindtap="takePhoto" style="height: 100px; width: 150px; background-image: url('../../images/picture.png'); background-size:fill; background-repeat: no-repeat;" mode="widthFix"></image>
+      </view>
+      <view wx:elif="{{photo.length >= 1}}">
+      <image style="background-image: url('{{photo}}'); width: 150px; height: 190px; background-repeat: no-repeat; background-size: cover;"></image>
+      </view>
+    </view>
+  </view>
     <button  style="margin-bottom:50px "type="primary" form-type="submit" loading="{{loading}}">Submit</button>
     </form>
 
   </view>
   </view>
+</view>

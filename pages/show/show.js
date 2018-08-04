@@ -7,13 +7,46 @@ Page({
   data: {
 
   },
-  modalcnt: function () {
+  modalcnt: function (e) {
+    let page = this
+
     wx.showModal({
       title: 'Confirmation',
       content: 'Are you sure you want to proceed?',
       success: function (res) {
         if (res.confirm) {
+          const data = getApp().globalData
+          if (data.email === null || data.wechat_id === null || data.school === null) {
+            console.log('aaa')
+            wx.reLaunch({
+              url: `/pages/userinfo/userinfo?redirect=${true}`,
+            })
+          }
+          console.log(1111, page.data)
+          wx.request({
+            url: `https://second-hand-textbook.herokuapp.com/api/v1/posts/${page.data.postId}`,
+            method: 'put',
+            data: {
+              confirmed: true
+            },
+            success: function () {
+            }
+          })
+          wx.request({
+            url: `https://second-hand-textbook.herokuapp.com/api/v1/posts/${page.data.postId}/transactions`,
+            method: 'post',
+            data: {
+              // title: page.data.title,
+              // photo: page.data.photo,
+              // description: page.data.description,
+              user_id: getApp().globalData.userId,
+              post_id: page.data.postId
+            },
+            success: function () {
+            }
+          })
           wx.navigateTo({
+
             url: '/pages/confirm/confirm',
           })
         } else if (res.cancel) {
@@ -58,37 +91,37 @@ Page({
 
   },
 
-  onClick: function (e) {
-    const id = e.target.dataset.id;
-    let page = this
-    console.log(this.data)
-    wx.request({
-      url: `https://second-hand-textbook.herokuapp.com/api/v1/posts/${this.data.postId}`,
-      method: 'put',
-      data: {
-        confirmed: true
-      },
-      success: function () {
-      }
-    })
-    wx.request({
-      url: `https://second-hand-textbook.herokuapp.com/api/v1/transactions`,
-      method: 'post',
-      data: {
-        title:  this.data.title,
-        photo: this.data.photo,
-        description: this.data.description,
-        user_id: this.data.user_id,
-        post_id: this.data.postId
-      },
-      success: function () {
-        wx.navigateTo({
-          url: `/pages/confirm/confirm?id=${id}`
-        })
-      }
-    })
+  // onClick: function (e) {
+  //   const id = e.target.dataset.id;
+  //   let page = this
+  //   console.log(1111,this.data)
+  //   wx.request({
+  //     url: `http://localhost:3000/api/v1/posts/${this.data.postId}`,
+  //     method: 'put',
+  //     data: {
+  //       confirmed: true
+  //     },
+  //     success: function () {
+  //     }
+  //   })
+  //   wx.request({
+  //     url: `http://localhost:3000/api/v1/transactions`,
+  //     method: 'post',
+  //     data: {
+  //       title:  this.data.title,
+  //       photo: this.data.photo,
+  //       description: this.data.description,
+  //       user_id: this.data.user_id,
+  //       post_id: this.data.postId
+  //     },
+  //     success: function () {
+  //       wx.navigateTo({
+  //         url: `/pages/confirm/confirm?id=${id}`
+  //       })
+  //     }
+  //   })
 
-  },
+  // },
 
   // deleteRestaurant: function (e) {
   //   let page = this

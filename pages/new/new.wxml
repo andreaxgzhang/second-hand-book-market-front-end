@@ -1,3 +1,4 @@
+<view class="main-container">
 <view class="header">
   <view class="h2-header">Submit your Textbook</view>
 </view>
@@ -13,37 +14,43 @@
 
       <view class="user-input">
       <view class="text-area-wrap">
-        <textarea value="{{description}}" style="input-size"placeholder="Description" class="input-height" name="description" maxlength="-1" auto-height />
+        <textarea value="{{description}}" placeholder="Description" class="input-height" name="description" maxlength="-1" auto-height />
       </view>
       </view>
 
       <view class="user-input">
       <view class="text-area-wrap">
-        <textarea value="{{course_number}}" style="input-size"placeholder="course_number" class="input-height" name="course_number" maxlength="-1" auto-height />
+        <textarea value="{{course_number}}" placeholder="course_number" class="input-height" name="course_number" maxlength="-1" auto-height />
       </view>
     </view>
 
       <view class="user-input">
       <view class="text-area-wrap">
-        <textarea value="{{professor}}" style="input-size"placeholder="professor" class="input-height" name="professor" maxlength="-1" auto-height />
+        <textarea value="{{professor}}" placeholder="professor" class="input-height" name="professor" maxlength="-1" auto-height />
       </view>
       </view>
       
       <view class="user-input">
       <view class="text-area-wrap">
-        <textarea value="{{price}}" style="input-size"placeholder="price" class="input-height" name="price" maxlength="-1" auto-height />
+        <textarea value="{{price}}" placeholder="price" class="input-height" name="price" maxlength="-1" auto-height />
       </view>
     </view>
 
   <view class="user-input">
-  <view class="text-area-wrap">
-    <image bindtap="takePhoto" style="height: 60px; width: 100px; background-image: url('../../images/picture.png'); background-size:fill; background-repeat: no-repeat;" mode="widthFix"></image>
+  <view class="hello">
+  <view wx:if="{{photo === nil}}">
+    <image bindtap="takePhoto" style="height: 100px; width: 150px; background-image: url('../../images/picture.png'); background-size:fill; background-repeat: no-repeat;" mode="widthFix"></image>
   </view>
+  <view wx:elif="{{photo.length >= 1}}">
+  <image style="background-image: url('{{photo}}'); width: 150px; height: 190px; background-repeat: no-repeat; background-size: cover;"></image>
   </view>
-
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="margin-bottom:50px "type="primary" form-type="submit" loading="{{loading}}">Submit</button>
+</view>
+  </view>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" form-type="submit" type="primary" style="margin-top: 50px;" loading="{{loading}}">Submit</button>
 
   </form>
 
 </view>
+</view>
+
 </view>

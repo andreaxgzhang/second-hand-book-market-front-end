@@ -1,21 +1,32 @@
 <!--pages/browse/browse.wxml-->
-<swiper indicator-dots="{{indicatorDots}}" 
-        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true"> 
+<view class="ba">
+<!-- <swiper indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" style="height: 30vh;"> 
       <block wx:for="{{arr}}"> 
         <swiper-item> 
             <image src="{{item}}" class="slide-image" width="355" height="150"/> 
         </swiper-item> 
       </block> 
-</swiper>
+</swiper> -->
 
+<view class="background">
 <view wx:for="{{posts}}" wx:for-item="post" class="post" bindtap='onClick' data-post="{{post}}">
 <image class="book-cover" src="{{post.photo}}"></image>
 <view class="post-body">
   <text class="title">{{post.title}}</text>
-  <text class="condition">{{post.description}}</text>
+  <text class="condition">Condition: {{post.description}}</text>
+      <text class="condition">{{post.course_number}}</text>
+      <text class="condition">Dr. {{post.professor}}</text>
 </view>
 <view class="post-info">
   <text class="status">{{post.confirmed}}</text>
   <text class="price">${{post.price}}</text>
 </view>
+</view>
+</view>
+</view>
+
+<view wx:if="{{ posts.length === 0 }}">
+ <text style="font-size: 16px; color: grey;">Sorry we cannot find the book you are requesting.</text>
+ <image src="/images/sad.png" style="width: 50px; height: 50px; display: block; margin: 0 auto;"></image>
 </view>

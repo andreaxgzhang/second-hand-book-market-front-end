@@ -10,6 +10,20 @@ AV.init({
 
 App({
   onLaunch: function () {
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userinfo']) {
+          wx.authorize({
+            scope: 'scope.userinfo',
+            success() {
+              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+              wx.startRecord()
+            }
+          })
+        }
+      }
+    })
+
     const host = 'https://second-hand-textbook.herokuapp.com/'
     wx.login({
       success: (res) => {
@@ -22,8 +36,8 @@ App({
           success: (res1) => {
             this.globalData.userId = res1.data.userId
             const page = this
-            console.log(11,res1)
             wx.getUserInfo({
+              
               success: function (res2) {
 
                 page.globalData.userInfo = res2.userInfo
@@ -35,7 +49,7 @@ App({
                     gender: res2.userInfo.gender,
                     avatarUrl: res2.userInfo.avatarUrl
                   },
-                  success: function () {
+                  success: function (res) {
                     // set data on index page and show
                     // wx.redirectTo({
                     //   url: '/pages/main/main'
@@ -44,6 +58,17 @@ App({
                   // insert next code here
                 })
               },
+            }),
+              console.log(page)
+            wx.request({
+              url: `https://second-hand-textbook.herokuapp.com/api/v1/users/${res1.data.userId}`,
+              metohd: 'get',
+              success: function (res) {
+                console.log(res)
+                page.globalData.email = res.data.users.email;
+                page.globalData.wechat_id = res.data.users.wechat_id;
+                page.globalData.school = res.data.users.school
+              }
             })
 
           }

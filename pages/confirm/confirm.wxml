@@ -2,7 +2,6 @@
     <image class="product-pic" src="https://image.flaticon.com/icons/svg/265/265738.svg" />
     <view class="h2">
     Thank you for your confirmation</view>
-    <view class="p">A confirmation email has been sent to {{users.name}} at {{users.email}}. You can also add the seller's WeChat ({{users.wechat_id}}) to accelarate your transcation.</view>
-    <button bindtap="homeTap"> back </button>
-    <view class="p">Payment due: $34.5</view>
+    <!-- <view class="p">A confirmation email has been sent to {{users.name}} at {{users.email}}. You can also add the seller's WeChat ({{users.wechat_id}}) to accelarate your transcation.</view> -->
+    <button bindtap='homeTap'> Back </button>
 </view>

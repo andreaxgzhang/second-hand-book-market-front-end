@@ -22,24 +22,26 @@ Page({
       data: { 
         title: form_textbook.title,
         description: form_textbook.description,
-        course_number: form_textbook.description,
+        course_number: form_textbook.course_number,
         professor: form_textbook.professor,
         price:form_textbook.price,
-        photo:page.data.photo
+        photo:page.data.photo,
+        user_id: getApp().globalData.userId
        },
       success: function (res) {
+        
       }
     })
 
     wx.reLaunch({
-      url: '/pages/userhistory/userhistory',
+      url: '/pages/userinfo/userinfo',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
   takePhoto: function () {
     let that = this
@@ -79,13 +81,21 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const data = getApp().globalData
+    console.log(data)
+    if (data.email === null || data.wechat_id === null || data.school === null) {
+      console.log(2222,data.email)
+      wx.reLaunch({
+        url: `/pages/userinfo/userinfo?redirect=${true}`,
+      })
+    }
   
   },
 

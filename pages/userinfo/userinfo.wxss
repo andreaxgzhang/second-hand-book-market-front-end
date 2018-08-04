@@ -1,22 +1,39 @@
-.user-input {
-  width: 300px;
-  margin-bottom: 35rpx;
+.edit {
+  margin-top: 10px;
+  font-size: 14px;
 }
-.input-height {
-  height: 10px;
-}
-.input-label {
-  font-size: 35rpx;
-}
-textarea {
-  padding: 10rpx 0;
-  font-size: 35rpx;
+
+.nav-display {
+  display: flex;
+  flex-direction: row;
   width: 100%;
+  justify-content: space-around;
+  padding-left: 20rpx;
 }
-.text-area-wrap {
-  padding: 15rpx 15rpx;
-  background-color: #fff;
-  margin-top:8px;
-  border-radius: 2px;
-  border-left: 5px solid #9F9F9C;
+
+.navbox {
+  max-width: 60px;
+}
+
+.navtext {
+  text-align: center;
+  position: relative;
+}
+.form {
+  width: 93%;
+  margin: 0 auto;
+
+}
+.line {
+  padding: 15rpx;
+  font-size: 16px;
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: 1px black;
+}
+.ava {
+  display: flex; 
+  justify-content: center; 
+  margin-top: 5vh !important;
+  flex-direction: column;
 }
